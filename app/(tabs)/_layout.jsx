@@ -70,9 +70,9 @@ const TabsLayout = () => {
           }}
         />
         <Tabs.Screen
-          name="monthlyOverview"
+          name="dailyIntention"
           options={{
-            title: "MonthlyOverview",
+            title: "DailyIntention",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
