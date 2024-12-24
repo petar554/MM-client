@@ -3,15 +3,10 @@ import React, { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { styled } from "nativewind";
 
-const Intention = ({ title, placeholder }) => {
-  const [isExpanded, setIsExpanded] = useState(false);
+const Intention = ({ title, placeholder, isExpanded, onToggle }) => {
   const [intentions, setIntentions] = useState([""]);
 
   console.log(intentions);
-
-  const toggleSection = () => {
-    setIsExpanded(!isExpanded);
-  };
 
   const handleIntentionChange = (index, text) => {
     const newIntentions = [...intentions];
@@ -36,8 +31,8 @@ const Intention = ({ title, placeholder }) => {
   }
 
   return (
-    <SafeAreaView className="p-1">
-      <TouchableOpacity onPress={toggleSection} className="p-5 bg-[#518e58] rounded-3xl mb-2">
+    <SafeAreaView className="p-1 mb-[-20]">
+      <TouchableOpacity onPress={onToggle} className="p-5 bg-[#518e58] rounded-3xl mb-2">
         <Text className="text-lg font-bold text-black text-center">{title}</Text>
       </TouchableOpacity>
       {isExpanded && (
